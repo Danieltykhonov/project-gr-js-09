@@ -10,4 +10,7 @@
 @import url('./article.css');
 @import url('./location.css');
 @import url('./footer.css');
+
+/* Modal styles */
+@import url('./book-modal.css');
 @import url('./contact-modal.css');
