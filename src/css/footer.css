@@ -1,36 +1,34 @@
-/* ========== FOOTER ========== */
+/* ========== MOBILE ========== */
 .footer {
+  padding: 80px 0;
   background-color: var(--color-footer-bg);
-  padding: 32px 0; /* звірити мобілку */
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* звірити мобілку */
 }
 
 .footer-top {
   display: flex;
   flex-direction: column;
-  gap: 32px; /* звірити */
+  align-items: center;
+  gap: 24px;
 }
 
 .footer-info {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* звірити */
+  align-items: center;
+  gap: 24px;
 }
 
-/* Навігація */
+/* ---------- Навігація ---------- */
 .footer-nav-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px; /* звірити */
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 
 .footer-link {
-  font-size: 14px; /* звірити */
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--color-text);
   transition: color var(--transition);
@@ -38,30 +36,41 @@
 
 .footer-link:hover,
 .footer-link:focus {
-  color: var(--color-accent-darkest); /* звірити hover */
+  color: var(--color-accent-darkest);
 }
 
-/* Форма */
-.footer-form-title {
-  font-size: 16px; /* звірити */
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-
-.footer-form-wrap {
+/* ---------- Форма ---------- */
+.footer-form {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 
+.footer-form-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-form-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* Поле email */
 .footer-input {
   flex-grow: 1;
   min-width: 0;
+  height: 48px;
   padding: 8px 12px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
-  background-color: rgba(255, 255, 255, 0.1); /* звірити фон поля */
-  border: 1px solid rgba(11, 5, 0, 0.2); /* звірити */
+  background-color: rgba(11, 5, 0, 0.05);
+  border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 4px;
   outline: none;
   transition: border-color var(--transition);
@@ -69,15 +78,30 @@
 
 .footer-input::placeholder {
   color: rgba(11, 5, 0, 0.6);
+  transition: color var(--transition);
+}
+
+.footer-input:hover::placeholder {
+  color: var(--color-text);
 }
 
 .footer-input:focus {
   border-color: var(--color-text);
 }
 
+.footer-input:user-invalid {
+  color: #ad0000;
+  border-color: #ad0000;
+}
+
+/* Кнопка Sign Up */
 .footer-btn {
-  padding: 8px 16px;
-  font-size: 14px;
+  flex-shrink: 0;
+  height: 48px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text);
   border: 1px solid var(--color-text);
   border-radius: 4px;
@@ -88,41 +112,49 @@
 
 .footer-btn:hover,
 .footer-btn:focus {
+  color: var(--color-white);
   background-color: var(--color-text);
-  color: var(--color-white); /* звірити hover в UI Kit */
 }
 
 .footer-form-note {
-  margin-top: 8px;
   font-size: 12px;
+  line-height: 1.5;
 }
 
-/* Копірайт */
+/* ---------- Копірайт ---------- */
 .footer-copy {
+  margin-top: 80px;
+  padding-top: 32px;
   font-size: 14px;
+  line-height: 1.5;
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* ========== TABLET ========== */
 @media screen and (min-width: 768px) {
-  .footer-input {
-    width: 240px; /* звірити */
-    flex-grow: 0;
+  .footer-nav-list {
+    flex-direction: row;
+  }
+
+  .footer-form {
+    width: 400px;
   }
 }
 
 /* ========== DESKTOP ========== */
 @media screen and (min-width: 1440px) {
-  .footer {
-    padding: 64px 0; /* звірити */
-  }
-
-  .footer-container {
-    gap: 80px; /* з макета */
-  }
-
   .footer-top {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-info {
+    align-items: flex-start;
+  }
+
+  .footer-copy {
+    font-size: 16px;
   }
 }
