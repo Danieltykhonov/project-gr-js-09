@@ -35,8 +35,7 @@
   overflow-y: auto;
 }
 
-.book-modal.is-open,
-.book-modal:not([hidden]) {
+.book-modal.is-open {
   display: flex;
 }
 
@@ -336,15 +335,6 @@
   outline-offset: -2px;
 }
 
-.ac-chevron {
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-
-.accordion-container .ac.is-active .ac-chevron {
-  transform: rotate(180deg);
-}
-
 .accordion-container .ac .ac-panel .ac-text {
   padding: 0 0 14px;
   margin: 0;
@@ -386,6 +376,10 @@
 
   .book-modal__price {
     font-size: 22px;
+  }
+
+  .book-modal__actions {
+    flex-direction: row;
   }
 
   .accordion-container .ac .ac-trigger {
