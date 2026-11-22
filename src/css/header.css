@@ -106,7 +106,7 @@
 .burger-btn:focus,
 .menu-close-btn:hover,
 .menu-close-btn:focus {
-  color: var(--color-accent);
+  color: var(--color-accent-darkest);
 }
 
 /* ========== TABLET ========== */
