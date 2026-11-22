@@ -1,21 +1,128 @@
+/* ========== FOOTER ========== */
 .footer {
-  padding: 20px 0;
+  background-color: var(--color-footer-bg);
+  padding: 32px 0; /* звірити мобілку */
 }
-.footer-desc {
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* звірити мобілку */
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* звірити */
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* звірити */
+}
+
+/* Навігація */
+.footer-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; /* звірити */
+}
+
+.footer-link {
+  font-size: 14px; /* звірити */
+  line-height: 1.5;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  color: var(--color-accent-darkest); /* звірити hover */
+}
+
+/* Форма */
+.footer-form-title {
+  font-size: 16px; /* звірити */
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.footer-form-wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-input {
+  flex-grow: 1;
+  min-width: 0;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.1); /* звірити фон поля */
+  border: 1px solid rgba(11, 5, 0, 0.2); /* звірити */
+  border-radius: 4px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.footer-input::placeholder {
+  color: rgba(11, 5, 0, 0.6);
+}
+
+.footer-input:focus {
+  border-color: var(--color-text);
+}
+
+.footer-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.footer-btn:hover,
+.footer-btn:focus {
+  background-color: var(--color-text);
+  color: var(--color-white); /* звірити hover в UI Kit */
+}
+
+.footer-form-note {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* Копірайт */
+.footer-copy {
+  font-size: 14px;
   text-align: center;
 }
-.footer-link {
-  position: relative;
+
+/* ========== TABLET ========== */
+@media screen and (min-width: 768px) {
+  .footer-input {
+    width: 240px; /* звірити */
+    flex-grow: 0;
+  }
 }
-.footer-link::before {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  left: 50%;
-  transform: translateX(-50%) skewX(-12deg);
-  z-index: -1;
-  width: 110%;
-  height: 24%;
-  background-color: #41d1ff;
-  transition: 200ms ease;
+
+/* ========== DESKTOP ========== */
+@media screen and (min-width: 1440px) {
+  .footer {
+    padding: 64px 0; /* звірити */
+  }
+
+  .footer-container {
+    gap: 80px; /* з макета */
+  }
+
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
