@@ -1,5 +1,5 @@
 import Accordion from 'accordion-js';
-import books from './books.js';
+import * as booksModule from './books.js';
 
 const modal = document.querySelector('#bookModal');
 const backdrop = document.querySelector('.book-modal__backdrop');
@@ -23,12 +23,21 @@ const statusMessageEl = document.querySelector('#modalStatusMessage');
 
 const booksSection = document.querySelector('#books');
 
+const booksList = Array.isArray(booksModule.books)
+  ? booksModule.books
+  : Array.isArray(booksModule.default)
+    ? booksModule.default
+    : Object.values(booksModule).find(Array.isArray) || [];
+
 let currentBook = null;
 
-const accordion = new Accordion('#bookAccordion', {
-  duration: 250,
-  showMultiple: true,
-});
+const accordionContainer = document.querySelector('#bookAccordion');
+const accordion = accordionContainer
+  ? new Accordion(accordionContainer, {
+      duration: 250,
+      showMultiple: true,
+    })
+  : null;
 
 function normalizeBook(rawBook) {
   return {
@@ -70,7 +79,7 @@ function openBookModal(rawBook) {
   if (qtyInput) qtyInput.value = 1;
   if (statusMessageEl) statusMessageEl.textContent = '';
 
-  accordion.closeAll();
+  accordion?.closeAll();
 
   modal.classList.add('is-open');
   modal.removeAttribute('hidden');
@@ -153,8 +162,7 @@ triggerContainer.addEventListener('click', (event) => {
     learnMoreBtn.dataset.bookTitle ||
     card?.querySelector('h2, h3, .book-title')?.textContent?.trim();
 
-  const bookList = Array.isArray(books) ? books : [];
-  const foundBook = bookList.find((item) => {
+  const foundBook = booksList.find((item) => {
     const normalized = normalizeBook(item);
     if (bookId && normalized.id === String(bookId)) return true;
     if (
