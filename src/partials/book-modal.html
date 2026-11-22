@@ -1,102 +1,165 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Modal</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Modal</title>
+  </head>
+  <body>
+    <div
+      class="book-modal"
+      id="bookModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalBookTitle"
+      hidden
+    >
+      <div class="book-modal__backdrop" data-modal-close></div>
 
-  <div class="book-modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="modalBookTitle" hidden>
-    <div class="book-modal__backdrop" data-modal-close></div>
-
-    <div class="book-modal__dialog">
-      <button type="button" class="book-modal__close" data-modal-close aria-label="Закрити вікно">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      <div class="book-modal__content">
-        <div class="book-modal__media">
-          <img
-            id="modalBookCover"
-            class="book-modal__cover"
-            src=""
-            alt=""
+      <div class="book-modal__dialog">
+        <button
+          type="button"
+          class="book-modal__close"
+          data-modal-close
+          aria-label="Закрити вікно"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            aria-hidden="true"
           >
-        </div>
+            <path
+              d="M4 4L16 16M16 4L4 16"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
 
-        <div class="book-modal__info">
-          <header class="book-modal__header">
-            <h2 id="modalBookTitle" class="book-modal__title"></h2>
-            <p id="modalBookAuthor" class="book-modal__author"></p>
-            <p id="modalBookPrice" class="book-modal__price"></p>
-          </header>
+        <div class="book-modal__content">
+          <div class="book-modal__media">
+            <img
+              id="modalBookCover"
+              class="book-modal__cover"
+              src=""
+              alt=""
+            />
+          </div>
 
-          <form class="book-modal__form" id="bookOrderForm">
-            <div class="book-modal__quantity">
-              <button type="button" class="qty-btn" id="qtyDecrease" aria-label="Зменшити кількість">-</button>
-              <input
-                type="number"
-                id="qtyInput"
-                name="quantity"
-                class="qty-input"
-                value="1"
-                min="1"
-                aria-label="Кількість примірників"
-              >
-              <button type="button" class="qty-btn" id="qtyIncrease" aria-label="Збільшити кількість">+</button>
-            </div>
+          <div class="book-modal__info">
+            <header class="book-modal__header">
+              <h2 id="modalBookTitle" class="book-modal__title"></h2>
+              <p id="modalBookAuthor" class="book-modal__author"></p>
+              <p id="modalBookPrice" class="book-modal__price"></p>
+            </header>
 
-            <div class="book-modal__actions">
-              <button type="button" class="btn btn--primary" id="addToCartBtn">Add To Cart</button>
-              <button type="submit" class="btn btn--secondary" id="buyNowBtn">Buy Now</button>
-            </div>
-
-            <p class="book-modal__status" id="modalStatusMessage" aria-live="polite"></p>
-          </form>
-
-          <div class="accordion-container" id="bookAccordion">
-            <div class="ac">
-              <h3 class="ac-header">
-                <button type="button" class="ac-trigger" id="triggerDetails">
-                  <span>Details</span>
+            <form class="book-modal__form" id="bookOrderForm">
+              <div class="book-modal__quantity">
+                <button
+                  type="button"
+                  class="qty-btn"
+                  id="qtyDecrease"
+                  aria-label="Зменшити кількість"
+                >
+                  -
                 </button>
-              </h3>
-              <div class="ac-panel">
-                <p class="ac-text" id="modalBookDetails"></p>
+                <input
+                  type="number"
+                  id="qtyInput"
+                  name="quantity"
+                  class="qty-input"
+                  value="1"
+                  min="1"
+                  aria-label="Кількість примірників"
+                />
+                <button
+                  type="button"
+                  class="qty-btn"
+                  id="qtyIncrease"
+                  aria-label="Збільшити кількість"
+                >
+                  +
+                </button>
               </div>
-            </div>
 
-            <div class="ac">
-              <h3 class="ac-header">
-                <button type="button" class="ac-trigger" id="triggerShipping">
-                  <span>Shipping</span>
+              <div class="book-modal__actions">
+                <button
+                  type="button"
+                  class="btn btn--primary"
+                  id="addToCartBtn"
+                >
+                  Add To Cart
                 </button>
-              </h3>
-              <div class="ac-panel">
-                <p class="ac-text" id="modalBookShipping"></p>
+                <button
+                  type="submit"
+                  class="btn btn--secondary"
+                  id="buyNowBtn"
+                >
+                  Buy Now
+                </button>
               </div>
-            </div>
 
-            <div class="ac">
-              <h3 class="ac-header">
-                <button type="button" class="ac-trigger" id="triggerReturns">
-                  <span>Returns</span>
-                </button>
-              </h3>
-              <div class="ac-panel">
-                <p class="ac-text" id="modalBookReturns"></p>
+              <p
+                class="book-modal__status"
+                id="modalStatusMessage"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div class="accordion-container" id="bookAccordion">
+              <div class="ac">
+                <h3 class="ac-header">
+                  <button
+                    type="button"
+                    class="ac-trigger"
+                    id="triggerDetails"
+                  >
+                    <span>Details</span>
+                  </button>
+                </h3>
+                <div class="ac-panel">
+                  <p class="ac-text" id="modalBookDetails"></p>
+                </div>
+              </div>
+
+              <div class="ac">
+                <h3 class="ac-header">
+                  <button
+                    type="button"
+                    class="ac-trigger"
+                    id="triggerShipping"
+                  >
+                    <span>Shipping</span>
+                  </button>
+                </h3>
+                <div class="ac-panel">
+                  <p class="ac-text" id="modalBookShipping"></p>
+                </div>
+              </div>
+
+              <div class="ac">
+                <h3 class="ac-header">
+                  <button
+                    type="button"
+                    class="ac-trigger"
+                    id="triggerReturns"
+                  >
+                    <span>Returns</span>
+                  </button>
+                </h3>
+                <div class="ac-panel">
+                  <p class="ac-text" id="modalBookReturns"></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <script type="module" src="./js/book-modal.js"></script>
+  </body>
 </html>
