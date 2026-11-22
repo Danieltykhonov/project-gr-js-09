@@ -1,5 +1,4 @@
 import Accordion from 'accordion-js';
-import 'accordion-js/dist/accordion.min.css';
 import books from './books.js';
 
 const modal = document.querySelector('#bookModal');
@@ -28,7 +27,7 @@ let currentBook = null;
 
 const accordion = new Accordion('#bookAccordion', {
   duration: 250,
-  showMultiple: true
+  showMultiple: true,
 });
 
 function normalizeBook(rawBook) {
@@ -40,7 +39,7 @@ function normalizeBook(rawBook) {
     cover: rawBook.cover ?? rawBook.image ?? rawBook.img ?? '',
     details: rawBook.details ?? rawBook.description ?? '',
     shipping: rawBook.shipping ?? '',
-    returns: rawBook.returns ?? ''
+    returns: rawBook.returns ?? '',
   };
 }
 
@@ -148,14 +147,22 @@ triggerContainer.addEventListener('click', (event) => {
   if (!learnMoreBtn) return;
 
   const card = learnMoreBtn.closest('[data-book-id], [data-id], .book-card');
-  const bookId = learnMoreBtn.dataset.bookId || card?.dataset.bookId || card?.dataset.id;
-  const bookTitle = learnMoreBtn.dataset.bookTitle || card?.querySelector('h2, h3, .book-title')?.textContent?.trim();
+  const bookId =
+    learnMoreBtn.dataset.bookId || card?.dataset.bookId || card?.dataset.id;
+  const bookTitle =
+    learnMoreBtn.dataset.bookTitle ||
+    card?.querySelector('h2, h3, .book-title')?.textContent?.trim();
 
   const bookList = Array.isArray(books) ? books : [];
   const foundBook = bookList.find((item) => {
     const normalized = normalizeBook(item);
     if (bookId && normalized.id === String(bookId)) return true;
-    if (bookTitle && normalized.title.toLowerCase() === bookTitle.toLowerCase()) return true;
+    if (
+      bookTitle &&
+      normalized.title.toLowerCase() === bookTitle.toLowerCase()
+    ) {
+      return true;
+    }
     return false;
   });
 
