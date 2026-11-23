@@ -1,16 +1,28 @@
-<div class="backdrop contact-backdrop">
-  <div class="contact-modal">
+<div class="contact-backdrop">
+  <div
+    class="contact-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="contact-modal-title"
+  >
     <button
       class="contact-modal-close-btn"
       type="button"
       aria-label="Close modal window"
     >
-      <svg class="icon contact-modal-close-icon" width="24" height="24">
+      <svg
+        class="icon contact-modal-close-icon"
+        width="24"
+        height="24"
+        aria-hidden="true"
+      >
         <use href="./img/sprite.svg#icon-close"></use>
       </svg>
     </button>
 
-    <h2 class="section-title contact-modal-title">Register</h2>
+    <h2 class="section-title contact-modal-title" id="contact-modal-title">
+      Register
+    </h2>
     <p class="contact-modal-subtitle"></p>
 
     <form class="contact-modal-form" autocomplete="on" novalidate>
