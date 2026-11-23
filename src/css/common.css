@@ -171,3 +171,8 @@ button {
 .is-hidden {
   display: none;
 }
+
+body.no-scroll {
+  overflow: hidden;
+}
+
