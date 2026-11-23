@@ -20,7 +20,7 @@
     visibility var(--transition);
 }
 
-.backdrop.is-open {
+.contact-backdrop.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -50,7 +50,7 @@
 }
 
 .contact-modal-close-btn:hover,
-.contact-modal-close-btn:focus {
+.contact-modal-close-btn:focus-visible {
   color: var(--color-accent);
 }
 
@@ -59,7 +59,7 @@
 }
 
 .contact-modal-close-btn:hover .contact-modal-close-icon,
-.contact-modal-close-btn:focus .contact-modal-close-icon {
+.contact-modal-close-btn:focus-visible .contact-modal-close-icon {
   transform: rotate(90deg);
 }
 
@@ -145,13 +145,13 @@
 
 .contact-modal-input:user-invalid,
 .contact-modal-textarea:user-invalid {
-  border-color: #ad0000;
-  color: #ad0000;
+  border-color: var(--color-error);
+  color: var(--color-error);
 }
 
 .contact-modal-input:user-invalid::placeholder,
 .contact-modal-textarea:user-invalid::placeholder {
-  color: #ad0000;
+  color: var(--color-error);
 }
 
 .contact-modal-submit-btn {
@@ -172,7 +172,7 @@
 }
 
 .contact-modal-submit-btn:hover,
-.contact-modal-submit-btn:focus {
+.contact-modal-submit-btn:focus-visible {
   background-color: var(--color-text);
   border-color: var(--color-text);
 }
@@ -183,7 +183,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .backdrop {
+  .contact-backdrop {
     padding: 64px 32px;
   }
 
