@@ -111,7 +111,14 @@
   .feedbacks-nav button.swiper-button-next:hover,
   .feedbacks-nav button.swiper-button-prev:focus-visible,
   .feedbacks-nav button.swiper-button-next:focus-visible {
-    background-color: #fceee6;
-    color: #0b0500;
+    color: var(--color-text);
+  background-color: var(--color-bg);
   }
+}
+
+.feedbacks-nav button.swiper-button-disabled {
+  color: var(--color-text);
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
 }
