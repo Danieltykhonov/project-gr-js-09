@@ -1,0 +1,117 @@
+.feedbacks-descr {
+  margin-top: 24px;
+}
+.feedbacks-swiper {
+  margin-top: 80px;
+}
+.swiper-wrapper.feedbacks-list {
+  display: flex;
+  align-items: stretch;
+}
+.swiper-slide.feedbacks-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  width: 341px;
+  height: auto;
+}
+.feedbacks-text {
+  margin-bottom: 24px;
+}
+.feedbacks-autor {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+}
+.feedbacks-autor-info {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+.feedbacks-autor-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+.feedbacks-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.feedbacks-autor-role {
+  font-size: 16px;
+}
+.feedbacks-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.feedbacks-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.feedbacks-nav button.swiper-button-prev,
+.feedbacks-nav button.swiper-button-next {
+  position: static;
+  transform: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  color: #fff;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.feedbacks-button-svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none;
+}
+.swiper-navigation-icon {
+  display: none;
+}
+.swiper-pagination.feedbacks-pagination {
+  position: static;
+  width: auto;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feedbacks-pagination .swiper-pagination-bullet {
+  opacity: 0.2;
+}
+.feedbacks-pagination .swiper-pagination-bullet-active {
+  background-color: #0b0500;
+  opacity: 1;
+}
+.feedbacks-nav button.swiper-button-prev:active,
+.feedbacks-nav button.swiper-button-next:active {
+  background-color: var(--color-accent-darkest);
+  color: #fff;
+}
+@media screen and (min-width: 1440px) {
+  .feedbacks-nav button.swiper-button-prev:hover,
+  .feedbacks-nav button.swiper-button-next:hover,
+  .feedbacks-nav button.swiper-button-prev:focus-visible,
+  .feedbacks-nav button.swiper-button-next:focus-visible {
+    background-color: #fceee6;
+    color: #0b0500;
+  }
+}
