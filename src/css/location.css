@@ -1,0 +1,110 @@
+/* ========== MOBILE ========== */
+.location-top {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.location-tagline {
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.location-title {
+    margin-bottom: 24px;
+}
+
+/* ---------- Контакти ---------- */
+.location-contacts {
+    padding: 8px 0;
+    font-style: normal;
+}
+
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.location-icon {
+    flex-shrink: 0;
+}
+
+.location-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.location-item-label {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+}
+
+.location-link,
+.location-office {
+    font-size: 16px;
+}
+
+.location-link {
+    display: inline-block;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity var(--transition);
+}
+
+.location-link:hover,
+.location-link:focus {
+    opacity: 0.8;
+}
+
+.location-link:active {
+    opacity: 0.6;
+}
+
+/* ---------- Карта ---------- */
+.location-map {
+    display: block;
+    width: 100%;
+    height: 395px;
+    border: none;
+}
+
+/* ========== TABLET ========== */
+@media screen and (min-width: 768px) {
+    .location-top {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 80px;
+    }
+
+    .location-info,
+    .location-contacts {
+        flex: 1;
+    }
+}
+
+/* ========== DESKTOP ========== */
+@media screen and (min-width: 1440px) {
+    .location-top {
+        gap: 80px;
+    }
+
+    .location-contacts {
+        flex: 0 0 500px;
+    }
+
+    .location-map {
+        height: 738px;
+    }
+}
