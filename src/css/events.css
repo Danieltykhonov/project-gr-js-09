@@ -1,8 +1,4 @@
 /*! ========== EVENTS ========== */
-.events {
-  --section-padding: 64px;
-}
-
 .events__eyebrow {
   font-size: 16px;
   line-height: 1.5;
