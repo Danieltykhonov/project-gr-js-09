@@ -183,11 +183,11 @@
 @media screen and (min-width: 768px) {
   .hero-swiper {
     height: 274px;
-    border-radius: 0;
+    border-radius: 11px;
   }
 
   .hero-slide {
-    border-radius: 0;
+    border-radius: 11px;
   }
 
   .hero-slide-content {
