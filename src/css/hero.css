@@ -1,0 +1,267 @@
+/*! ========== HERO ========== */
+.hero {
+  /* рамка стрілок слайдера з UI Kit (neutral-darkest 15%) */
+  --hero-arrow-border: rgba(11, 5, 0, 0.15);
+  /* затемнення фото під білим текстом — у кожного банера своє, як у макеті */
+  --hero-shade-20: rgba(0, 0, 0, 0.2);
+  --hero-shade-30: rgba(0, 0, 0, 0.3);
+  --hero-shade-40: rgba(0, 0, 0, 0.4);
+
+  padding-bottom: 32px;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- Слайдер ---------- */
+/* Висоту задаємо контейнеру: слайди Swiper мають height: 100%.
+   Так стилі не залежать від порядку підключення swiper.css */
+.hero-swiper {
+  width: 100%;
+  height: 199px;
+  border-radius: 8px;
+}
+
+.hero-slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hero-slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slide--shade-20::after,
+.hero-slide--shade-30::after,
+.hero-slide--shade-40::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide--shade-20::after {
+  background-color: var(--hero-shade-20);
+}
+
+.hero-slide--shade-30::after {
+  background-color: var(--hero-shade-30);
+}
+
+.hero-slide--shade-40::after {
+  background-color: var(--hero-shade-40);
+}
+
+.hero-slide-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* ширина текстового блоку як у макеті — від неї залежить перенос рядків */
+.hero-slide-title {
+  max-width: 172px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.hero-slide-title--wide {
+  max-width: 240px;
+}
+
+/* у цих банерах кожна частина заголовка завжди з нового рядка */
+.hero-slide-title--split {
+  max-width: none;
+}
+
+.hero-slide-title--split .hero-slide-line {
+  display: block;
+}
+
+.hero-slide-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 117px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  transition: background-color var(--transition);
+}
+
+.hero-slide-link:hover,
+.hero-slide-link:focus-visible {
+  background-color: var(--color-text);
+}
+
+.hero-slide-link:active {
+  background-color: var(--color-accent-dark);
+}
+
+/* ---------- Заголовок + стрілки ---------- */
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-title {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* на мобілці стрілки стоять над заголовком, справа */
+.hero-nav {
+  order: -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.hero-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--hero-arrow-border);
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    opacity var(--transition);
+}
+
+.hero-nav-btn:hover,
+.hero-nav-btn:focus-visible {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.hero-nav-btn:active {
+  color: var(--color-white);
+  background-color: var(--color-accent-darkest);
+}
+
+/* Inactive з UI Elements: темна іконка, кнопка прозора на 80% і не реагує */
+.hero-nav-btn:disabled,
+.hero-nav-btn.is-disabled {
+  color: var(--color-text);
+  background-color: var(--color-accent);
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ---------- Tablet ---------- */
+@media screen and (min-width: 768px) {
+  .hero-swiper {
+    height: 274px;
+    border-radius: 0;
+  }
+
+  .hero-slide {
+    border-radius: 0;
+  }
+
+  .hero-slide-content {
+    padding: 32px 40px;
+  }
+
+  .hero-slide-title {
+    max-width: 274px;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-slide-title--wide {
+    max-width: 389px;
+  }
+
+  .hero-slide-title--split {
+    max-width: none;
+  }
+
+  .hero-slide-link {
+    min-width: 164px;
+    padding: 4px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .hero-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-title {
+    flex: 1;
+  }
+
+  .hero-nav {
+    order: 0;
+    gap: 24px;
+  }
+}
+
+/* ---------- Desktop ---------- */
+@media screen and (min-width: 1440px) {
+  .hero-swiper {
+    height: 395px;
+    border-radius: 16px;
+  }
+
+  .hero-slide {
+    border-radius: 16px;
+  }
+
+  .hero-slide-content {
+    gap: 20px;
+    padding: 56px;
+  }
+
+  .hero-slide-title {
+    max-width: none;
+    font-size: 52px;
+  }
+
+  /* на десктопі кожна частина заголовка банера з нового рядка, як у макеті */
+  .hero-slide-line {
+    display: block;
+  }
+
+  .hero-slide-link {
+    min-width: 227px;
+    padding: 8px 20px;
+  }
+
+  .hero-title {
+    font-size: 52px;
+  }
+}
