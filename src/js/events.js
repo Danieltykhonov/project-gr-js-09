@@ -10,7 +10,6 @@ if (eventsSlider) {
     modules: [A11y, Keyboard, Navigation, Pagination],
     slidesPerView: 1,
     spaceBetween: 24,
-    rewind: true,
     watchOverflow: true,
     keyboard: { enabled: true, onlyInViewport: true },
     a11y: { enabled: true },
