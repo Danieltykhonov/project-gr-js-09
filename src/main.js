@@ -6,6 +6,7 @@ import './js/events.js';
 import './js/book-modal.js';
 import './js/contact-modal.js';
 import './js/footer.js';
+import './js/scroll-up.js';
 import './js/loader.js';
 
 import AOS from 'aos';
