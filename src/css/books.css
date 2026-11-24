@@ -1,0 +1,308 @@
+/* =========================================================
+   BOOKS
+   Mobile:  Books + Showing → dropdown на всю ширину → картки в 1 колонку
+   Tablet:  Books | Showing + dropdown в один рядок → картки в 2 колонки
+   Desktop: зліва колонка 308px (Books + Showing, список категорій),
+            справа картки в 4 колонки
+   ========================================================= */
+
+/* ========== MOBILE ========== */
+.books-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- Шапка: Books + Showing + фільтр ---------- */
+.books-sidebar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'title count'
+    'filter filter';
+  align-items: center;
+  gap: 24px 16px;
+}
+
+.books-subtitle {
+  grid-area: title;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.books-count {
+  grid-area: count;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- Фільтр: dropdown на мобілці й планшеті ---------- */
+.books-filter {
+  grid-area: filter;
+  position: relative;
+}
+
+.books-filter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 43px;
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: rgba(11, 5, 0, 0.05);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 8px;
+  transition: border-color var(--transition);
+}
+
+.books-filter-toggle:hover,
+.books-filter-toggle:focus-visible {
+  border-color: var(--color-text);
+}
+
+.books-filter-icon {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.books-filter.is-open .books-filter-icon {
+  transform: rotate(180deg);
+}
+
+.books-categories {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  background-color: var(--color-bg);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 8px;
+  scrollbar-color: var(--color-accent) transparent;
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition),
+    visibility var(--transition);
+}
+
+.books-filter.is-open .books-categories {
+  opacity: 1;
+  visibility: visible;
+}
+
+.books-category-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--color-text);
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.books-category-btn:hover,
+.books-category-btn:focus-visible,
+.books-category-btn.is-active {
+  background-color: rgba(11, 5, 0, 0.08);
+}
+
+/* ---------- Картки книг ---------- */
+/* min-width: 0 і minmax(0, 1fr) — щоб великі обкладинки не розпирали колонки */
+.books-main {
+  min-width: 0;
+}
+
+.books-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px 24px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.book-card-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 343 / 487; /* пропорції обкладинки з макета */
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: rgba(11, 5, 0, 0.05);
+}
+
+.book-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.book-card-head {
+  min-width: 0;
+}
+
+.book-card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* довгі назви обрізаються «...», як у макеті */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+.book-card-author {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.book-card-price {
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Кнопка Learn More (UI Kit: outline) */
+.book-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  margin-top: auto;
+  padding: 8px 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.book-card-btn:hover,
+.book-card-btn:focus-visible {
+  color: var(--color-white);
+  background-color: var(--color-text);
+}
+
+/* Кнопка Show More (UI Kit: primary) */
+.books-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 342px;
+  height: 48px;
+  margin: 24px auto 0;
+  padding: 12px 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: 4px;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.books-more-btn:hover,
+.books-more-btn:focus-visible {
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.books-more-btn:active {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.books-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* ========== TABLET ========== */
+@media screen and (min-width: 768px) {
+  /* Books | Showing | dropdown в одному рядку */
+  .books-sidebar {
+    grid-template-columns: 1fr auto 249px;
+    grid-template-areas: 'title count filter';
+  }
+
+  .books-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========== DESKTOP ========== */
+@media screen and (min-width: 1440px) {
+  .books-container {
+    display: grid;
+    grid-template-columns: 308px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .books-sidebar {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'title count'
+      'filter filter';
+    gap: 24px 16px;
+    padding: 32px 0;
+  }
+
+  /* на десктопі категорії — завжди видимий список */
+  .books-filter-toggle {
+    display: none;
+  }
+
+  .books-categories {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .books-category-btn {
+    padding: 8px 0;
+    font-size: 16px;
+  }
+
+  .books-category-btn:hover,
+  .books-category-btn:focus-visible {
+    color: var(--color-accent-darkest);
+    background-color: transparent;
+  }
+
+  .books-category-btn.is-active {
+    background-color: transparent;
+  }
+  .books-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
