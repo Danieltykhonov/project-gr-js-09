@@ -1,5 +1,6 @@
 import Accordion from 'accordion-js';
-import * as booksModule from './books.js';
+import 'accordion-js/dist/accordion.min.css';
+import { getBookById } from './books-api.js';
 
 const modal = document.querySelector('#bookModal');
 const backdrop = document.querySelector('.book-modal__backdrop');
@@ -14,7 +15,7 @@ const detailsEl = document.querySelector('#modalBookDetails');
 const shippingEl = document.querySelector('#modalBookShipping');
 const returnsEl = document.querySelector('#modalBookReturns');
 
-const formEl = document.querySelector('#bookModalForm');
+const formEl = document.querySelector('#bookOrderForm');
 const qtyInput = document.querySelector('#qtyInput');
 const decreaseBtn = document.querySelector('#qtyDecrease');
 const increaseBtn = document.querySelector('#qtyIncrease');
@@ -23,13 +24,8 @@ const statusMessageEl = document.querySelector('#modalStatusMessage');
 
 const booksSection = document.querySelector('#books');
 
-const booksList = Array.isArray(booksModule.books)
-  ? booksModule.books
-  : Array.isArray(booksModule.default)
-    ? booksModule.default
-    : Object.values(booksModule).find(Array.isArray) || [];
-
 let currentBook = null;
+let isLoadingBook = false;
 
 const accordionContainer = document.querySelector('#bookAccordion');
 const accordion = accordionContainer
@@ -45,8 +41,13 @@ function normalizeBook(rawBook) {
     title: rawBook.title ?? rawBook.name ?? '',
     author: rawBook.author ?? '',
     price: rawBook.price ?? '',
-    cover: rawBook.cover ?? rawBook.image ?? rawBook.img ?? '',
-    details: rawBook.details ?? rawBook.description ?? '',
+    cover:
+      rawBook.book_image ??
+      rawBook.cover ??
+      rawBook.image ??
+      rawBook.img ??
+      '',
+    details: rawBook.description ?? rawBook.details ?? '',
     shipping: rawBook.shipping ?? '',
     returns: rawBook.returns ?? '',
   };
@@ -151,30 +152,33 @@ formEl?.addEventListener('submit', (event) => {
 
 const triggerContainer = booksSection || document;
 
-triggerContainer.addEventListener('click', (event) => {
-  const learnMoreBtn = event.target.closest('[data-learn-more], .learn-more-btn');
-  if (!learnMoreBtn) return;
+triggerContainer.addEventListener('click', async (event) => {
+  const learnMoreBtn = event.target.closest(
+    '[data-learn-more], .learn-more-btn, button[data-book-id]'
+  );
+  if (!learnMoreBtn || isLoadingBook) return;
 
   const card = learnMoreBtn.closest('[data-book-id], [data-id], .book-card');
   const bookId =
     learnMoreBtn.dataset.bookId || card?.dataset.bookId || card?.dataset.id;
-  const bookTitle =
-    learnMoreBtn.dataset.bookTitle ||
-    card?.querySelector('h2, h3, .book-title')?.textContent?.trim();
 
-  const foundBook = booksList.find((item) => {
-    const normalized = normalizeBook(item);
-    if (bookId && normalized.id === String(bookId)) return true;
-    if (
-      bookTitle &&
-      normalized.title.toLowerCase() === bookTitle.toLowerCase()
-    ) {
-      return true;
+  if (!bookId) return;
+
+  try {
+    isLoadingBook = true;
+    learnMoreBtn.disabled = true;
+
+    const bookData = await getBookById(bookId);
+    const resolvedBook = bookData?.data ?? bookData;
+
+    if (resolvedBook) {
+      openBookModal(resolvedBook);
     }
-    return false;
-  });
-
-  if (foundBook) {
-    openBookModal(foundBook);
+  } catch (error) {
+    console.error('Unable to load the data:', error);
+  } finally {
+    isLoadingBook = false;
+    learnMoreBtn.disabled = false;
   }
 });
+    
