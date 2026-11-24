@@ -1,0 +1,144 @@
+.feedbacks-descr {
+  margin-top: 24px;
+}
+
+.feedbacks-swiper {
+  margin-top: 80px;
+}
+
+.swiper-wrapper.feedbacks-list {
+  display: flex;
+  align-items: stretch;
+}
+
+.swiper-slide.feedbacks-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 32px;
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  border-radius: 16px;
+}
+
+.swiper-slide.feedbacks-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.feedbacks-text {
+  margin-bottom: 24px;
+}
+
+.feedbacks-autor {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.feedbacks-autor-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.feedbacks-autor-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.feedbacks-autor-role {
+  font-size: 16px;
+}
+
+.feedbacks-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.feedbacks-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.swiper-pagination.feedbacks-pagination {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  margin: 0;
+}
+
+.feedbacks-pagination .swiper-pagination-bullet {
+  margin: 0;
+  background-color: var(--color-text);
+  opacity: 0.2;
+}
+
+.feedbacks-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.feedbacks-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedbacks-nav .swiper-button-prev::after,
+.feedbacks-nav .swiper-button-next::after,
+.feedbacks-nav .swiper-navigation-icon {
+  display: none;
+}
+
+.feedbacks-nav button.swiper-button-prev,
+.feedbacks-nav button.swiper-button-next {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 12px;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+  transform: none;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
+}
+
+.feedbacks-button-svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.feedbacks-nav button.swiper-button-prev:hover,
+.feedbacks-nav button.swiper-button-next:hover,
+.feedbacks-nav button.swiper-button-prev:focus-visible,
+.feedbacks-nav button.swiper-button-next:focus-visible {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.feedbacks-nav button.swiper-button-prev:active,
+.feedbacks-nav button.swiper-button-next:active {
+  color: var(--color-white);
+  background-color: var(--color-accent-darkest);
+}
+
+.feedbacks-nav button.swiper-button-disabled {
+  color: var(--color-text);
+  background-color: var(--color-accent);
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
