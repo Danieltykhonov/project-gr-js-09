@@ -1,25 +1,25 @@
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://books-backend.p.goit.global',
-});
+axios.defaults.baseURL = 'https://books-backend-v2.b.goit.study';
 
-export const getCategories = async () => {
-  const books = await api.get('/books/category-list');
-  return books.data;
-};
+export async function getCategories() {
+  const { data } = await axios.get('/books/category-list');
+  return data;
+}
 
-export const getTopBooks = async () => {
-  const books = await api.get('/books/top-books');
-  return books.data;
-};
+export async function getTopBooks() {
+  const { data } = await axios.get('/books/top-books');
+  return data;
+}
 
-export const getBooksByCategory = async (category) => {
-  const books = await api.get('/books/category', category);
-  return books.data;
-};
+export async function getBooksByCategory(category) {
+  const { data } = await axios.get('/books/category', {
+    params: { category },
+  });
+  return data;
+}
 
-export const getBookgitId = async (id) => {
-  const book = await api.get(`/books/${id}`);
-  return book.data;
-};
+export async function getBookById(id) {
+  const { data } = await axios.get(`/books/${id}`);
+  return data;
+}
