@@ -4,7 +4,7 @@
     <p class="feedbacks-descr">See what our readers are saying about us!</p>
     <div class="swiper feedbacks-swiper">
       <ul class="swiper-wrapper feedbacks-list">
-        <li class="swiper-slide feedbacks-card">
+        <li class="swiper-slide feedbacks-card" tabindex="0">
           <p class="feedbacks-text">
             Great selection, fast delivery, and beautifully packaged books. My
             go-to store for weekend reads!
@@ -20,6 +20,7 @@
               alt="Jane Doe"
               width="48"
               height="48"
+              loading="lazy"
             />
 
             <div class="feedbacks-autor-info">
@@ -28,7 +29,7 @@
             </div>
           </div>
         </li>
-        <li class="swiper-slide feedbacks-card">
+        <li class="swiper-slide feedbacks-card" tabindex="0">
           <p class="feedbacks-text">
             Customer service was super helpful, and my order arrived earlier
             than expected. Highly recommend!
@@ -44,6 +45,7 @@
               alt="John Smith"
               width="48"
               height="48"
+              loading="lazy"
             />
 
             <div class="feedbacks-autor-info">
@@ -52,7 +54,7 @@
             </div>
           </div>
         </li>
-        <li class="swiper-slide feedbacks-card">
+        <li class="swiper-slide feedbacks-card" tabindex="0">
           <p class="feedbacks-text">
             Love the curated picks and clear descriptions. Makes it easy to find
             my next favorite book.
@@ -68,6 +70,7 @@
               alt="Emily Johnson"
               width="48"
               height="48"
+              loading="lazy"
             />
 
             <div class="feedbacks-autor-info">
@@ -76,7 +79,7 @@
             </div>
           </div>
         </li>
-        <li class="swiper-slide feedbacks-card">
+        <li class="swiper-slide feedbacks-card" tabindex="0">
           <p class="feedbacks-text">
             Customer service was super helpful, and my order arrived earlier
             than expected. Highly recommend!
@@ -92,6 +95,7 @@
               alt="John Smith"
               width="48"
               height="48"
+              loading="lazy"
             />
 
             <div class="feedbacks-autor-info">
@@ -100,7 +104,7 @@
             </div>
           </div>
         </li>
-        <li class="swiper-slide feedbacks-card">
+        <li class="swiper-slide feedbacks-card" tabindex="0">
           <p class="feedbacks-text">
             Love the curated picks and clear descriptions. Makes it easy to find
             my next favorite book.
@@ -116,6 +120,7 @@
               alt="Emily Johnson"
               width="48"
               height="48"
+              loading="lazy"
             />
 
             <div class="feedbacks-autor-info">
@@ -134,7 +139,12 @@
           class="swiper-button-prev feedbacks-button-prev"
           aria-label="Previous feedback"
         >
-          <svg class="feedbacks-button-svg" width="24" height="24">
+          <svg
+            class="feedbacks-button-svg"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
             <use href="./img/sprite.svg#icon-arrow-left"></use>
           </svg>
         </button>
@@ -144,7 +154,12 @@
           class="swiper-button-next feedbacks-button-next"
           aria-label="Next feedback"
         >
-          <svg class="feedbacks-button-svg" width="24" height="24">
+          <svg
+            class="feedbacks-button-svg"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
             <use href="./img/sprite.svg#icon-arrow-right"></use>
           </svg>
         </button>
