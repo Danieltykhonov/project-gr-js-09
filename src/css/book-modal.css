@@ -253,7 +253,7 @@
 }
 
 .book-modal__btn:disabled,
-.book-modal__btn[aria-disabled="true"] {
+.book-modal__btn[aria-disabled='true'] {
   background-color: rgba(11, 5, 0, 0.15);
   color: rgba(11, 5, 0, 0.4);
   border-color: transparent;

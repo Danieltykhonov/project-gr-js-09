@@ -1,9 +1,9 @@
-import Swiper from "swiper";
-import { A11y, Keyboard, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import Swiper from 'swiper';
+import { A11y, Keyboard, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-const eventsSlider = document.querySelector(".events__slider");
+const eventsSlider = document.querySelector('.events__slider');
 
 if (eventsSlider) {
   new Swiper(eventsSlider, {
@@ -12,14 +12,14 @@ if (eventsSlider) {
     spaceBetween: 24,
     watchOverflow: true,
     keyboard: { enabled: true, onlyInViewport: true },
-    a11y: { enabled: true, slideRole: "listitem" },
+    a11y: { enabled: true, slideRole: 'listitem' },
     pagination: {
-      el: eventsSlider.querySelector(".events__pagination"),
+      el: eventsSlider.querySelector('.events__pagination'),
       clickable: true,
     },
     navigation: {
-      prevEl: eventsSlider.querySelector(".events__arrow--prev"),
-      nextEl: eventsSlider.querySelector(".events__arrow--next"),
+      prevEl: eventsSlider.querySelector('.events__arrow--prev'),
+      nextEl: eventsSlider.querySelector('.events__arrow--next'),
     },
     breakpoints: {
       768: { slidesPerView: 2, slidesPerGroup: 2 },
