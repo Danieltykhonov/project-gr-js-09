@@ -15,11 +15,7 @@ export const getTopBooks = async () => {
 };
 
 export const getBooksByCategory = async (category) => {
-  const books = await api.get('/books/category', {
-    params: {
-      category,
-    },
-  });
+  const books = await api.get('/books/category', category);
   return books.data;
 };
 
