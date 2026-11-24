@@ -9,7 +9,6 @@ import './js/footer.js';
 import './js/scroll-up.js';
 
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 document.querySelectorAll('section:not(.hero)').forEach(section => {
   section.setAttribute('data-aos', 'fade-up');
