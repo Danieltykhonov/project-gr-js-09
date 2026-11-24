@@ -22,6 +22,12 @@ const feedbacksSwiper = new Swiper('.feedbacks-swiper', {
   keyboard: {
     enabled: true,
   },
+  a11y: {
+    enabled: true,
+    prevSlideMessage: 'Previous feedbacks',
+    nextSlideMessage: 'Next feedbacks',
+    slideRole: 'listitem',
+  },
   breakpoints: {
     768: {
       slidesPerView: 2,
