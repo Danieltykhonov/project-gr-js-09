@@ -94,6 +94,10 @@
   border-color: #ad0000;
 }
 
+.footer-input:user-invalid::placeholder {
+  color: #ad0000;
+}
+
 /* Кнопка Sign Up */
 .footer-btn {
   flex-shrink: 0;
