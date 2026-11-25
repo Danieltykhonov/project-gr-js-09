@@ -10,11 +10,6 @@
     alt="Booksy — десктопна версія"
     width="68%"
   />
-  <img
-    src="https://github.com/user-attachments/assets/d0120e45-8216-4d8b-85e4-8da66be69d6f"
-    alt="Booksy — мобільна версія"
-    width="28%"
-  />
 </p>
 
 **Живий сайт:** https://danieltykhonov.github.io/project-gr-js-09/
