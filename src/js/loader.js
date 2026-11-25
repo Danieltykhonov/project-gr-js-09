@@ -1,14 +1,12 @@
-const scrollUpBtn = document.querySelector('#scroll-up');
+export function showLoader(container) {
+  const loader = document.createElement('span');
+  loader.className = 'loader';
+  loader.setAttribute('role', 'status');
+  loader.setAttribute('aria-label', 'Loading');
+  container.append(loader);
+  return loader;
+}
 
-if (scrollUpBtn) {
-  const toggleScrollUp = () => {
-    scrollUpBtn.classList.toggle('is-visible', window.scrollY > 300);
-  };
-
-  window.addEventListener('scroll', toggleScrollUp, { passive: true });
-  toggleScrollUp();
-
-  scrollUpBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+export function hideLoader(loader) {
+  loader?.remove();
 }
