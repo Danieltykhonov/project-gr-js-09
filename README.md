@@ -4,6 +4,19 @@
 за категоріями, детальна інформація про книгу, відгуки покупців, анонси подій і
 контакти магазину.
 
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/f4ab0a76-58db-4362-8513-f48535b32128"
+    alt="Booksy — десктопна версія"
+    width="68%"
+  />
+  <img
+    src="https://github.com/user-attachments/assets/d0120e45-8216-4d8b-85e4-8da66be69d6f"
+    alt="Booksy — мобільна версія"
+    width="28%"
+  />
+</p>
+
 **Живий сайт:** https://danieltykhonov.github.io/project-gr-js-09/
 
 ## Про проєкт
