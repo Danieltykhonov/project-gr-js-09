@@ -48,14 +48,22 @@ if (backdrop) {
     }
   });
 
+  const nameInput = form.elements.user_name;
+  const emailInput = form.elements.user_email;
+
+  [nameInput, emailInput].forEach(input => {
+    input.addEventListener('input', () => input.classList.remove('is-invalid'));
+  });
+
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    const name = formData.get('user_name').trim();
-    const email = formData.get('user_email').trim();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
 
     if (name.length < 3) {
+      nameInput.classList.add('is-invalid');
+      nameInput.focus();
       iziToast.error({
         title: 'Error',
         message: 'Please enter your name (at least 3 characters).',
@@ -65,6 +73,8 @@ if (backdrop) {
     }
 
     if (!emailPattern.test(email)) {
+      emailInput.classList.add('is-invalid');
+      emailInput.focus();
       iziToast.error({
         title: 'Error',
         message: 'Please enter a valid email address.',

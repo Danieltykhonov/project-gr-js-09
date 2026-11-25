@@ -236,6 +236,12 @@
   border-color: var(--color-accent-dark);
 }
 
+/* ховаємо Show More, коли книги закінчились
+   (без цього display: flex вище перебиває .is-hidden з common.css) */
+.books-more-btn.is-hidden {
+  display: none;
+}
+
 .books-empty {
   grid-column: 1 / -1;
   text-align: center;
@@ -299,9 +305,13 @@
     background-color: transparent;
   }
 
+  /* підсвітка активної категорії */
   .books-category-btn.is-active {
+    font-weight: 600;
+    color: var(--color-accent);
     background-color: transparent;
   }
+
   .books-list {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

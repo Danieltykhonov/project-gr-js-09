@@ -154,6 +154,16 @@
   color: var(--color-error);
 }
 
+/* червона підсвітка, яку ставить JS при відправці */
+.contact-modal-input.is-invalid {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.contact-modal-input.is-invalid::placeholder {
+  color: var(--color-error);
+}
+
 .contact-modal-submit-btn {
   align-self: center;
   width: 100%;

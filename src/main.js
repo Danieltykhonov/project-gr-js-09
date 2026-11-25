@@ -18,4 +18,5 @@ document.querySelectorAll('section:not(.hero)').forEach(section => {
 AOS.init({
   duration: 800,
   once: true,
+  offset: 120,
 });
