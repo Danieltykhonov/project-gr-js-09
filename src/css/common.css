@@ -13,6 +13,8 @@
   --color-accent-dark: #b44a04; /* темніший оранжевий */
   --color-accent-darkest: #5a2502; /* стрілки active */
 
+  --color-error: #ad0000; /* error color */
+
   /* Шрифт */
   --font-main: 'Rubik', sans-serif;
 

@@ -1,3 +1,4 @@
+/*! ========== BOOK MODAL ========== */
 .book-modal {
   position: fixed;
   inset: 0;
@@ -17,52 +18,43 @@
   position: fixed;
   inset: 0;
   background-color: rgba(11, 5, 0, 0.5);
-  backdrop-filter: blur(2px);
 }
 
+/* Мобілка: 343px, padding 64/16, radius 16 */
 .book-modal__dialog {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 360px;
+  max-width: 343px;
   max-height: calc(100vh - 32px);
+  margin: auto;
+  padding: 64px 16px;
   overflow-y: auto;
-  background-color: var(--color-bg);
   color: var(--color-text);
-  border-radius: 6px;
-  padding: 44px 16px 24px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  background-color: var(--color-bg);
+  border-radius: 16px;
 }
 
 .book-modal__close {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 32px;
-  height: 32px;
-  display: inline-flex;
+  top: 16px;
+  right: 16px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   color: var(--color-text);
-  border: 1px solid transparent;
-  border-radius: 4px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  transition:
-    background-color var(--transition),
-    color var(--transition),
-    border-color var(--transition);
+  transition: color var(--transition);
 }
 
 .book-modal__close:hover,
 .book-modal__close:focus-visible {
-  background-color: rgba(11, 5, 0, 0.08);
-  border-color: rgba(11, 5, 0, 0.15);
-  outline: none;
-}
-
-.book-modal__close:active {
-  background-color: rgba(11, 5, 0, 0.16);
+  color: var(--color-accent);
 }
 
 .book-modal__close svg,
@@ -71,16 +63,16 @@
   flex-shrink: 0;
 }
 
+/* Контент: обкладинка + інформація */
 .book-modal__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .book-modal__media {
   width: 100%;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -88,7 +80,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 309 / 467;
   object-fit: cover;
 }
 
@@ -99,81 +91,75 @@
   min-width: 0;
 }
 
+/* Типографіка за макетом */
 .book-modal__title {
-  margin: 0 0 6px;
-  font-size: 24px;
+  font-size: 40px;
+  font-weight: 600;
   line-height: 1.2;
-  font-weight: 700;
-  color: var(--color-text);
+  letter-spacing: -0.01em;
 }
 
 .book-modal__author {
-  margin: 0 0 8px;
+  margin-top: 4px;
   font-size: 14px;
-  line-height: 1.4;
-  color: rgba(11, 5, 0, 0.6);
+  line-height: 1.5;
 }
 
 .book-modal__price {
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 600;
-  color: var(--color-text);
+  margin-top: 4px;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
+/* Форма: кількість + кнопки */
 .book-modal__form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .book-modal__quantity {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   align-self: flex-start;
-  border: 1px solid rgba(11, 5, 0, 0.15);
-  border-radius: 4px;
-  background-color: transparent;
-  overflow: hidden;
+  gap: 8px;
 }
 
 .qty-btn {
-  width: 34px;
-  height: 34px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  background: transparent;
+  width: 32px;
+  height: 40px;
+  padding: 0;
   color: var(--color-text);
+  background-color: transparent;
+  border: 1px solid var(--color-text);
+  border-radius: 4px;
   cursor: pointer;
   transition:
-    background-color var(--transition),
-    color var(--transition);
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .qty-btn:hover,
 .qty-btn:focus-visible {
-  background-color: rgba(11, 5, 0, 0.08);
-  outline: none;
-}
-
-.qty-btn:active {
-  background-color: rgba(11, 5, 0, 0.16);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .qty-input {
-  width: 44px;
-  height: 34px;
-  border: none;
-  border-left: 1px solid rgba(11, 5, 0, 0.15);
-  border-right: 1px solid rgba(11, 5, 0, 0.15);
-  background: transparent;
-  color: var(--color-text);
+  width: 32px;
+  height: 40px;
+  padding: 0;
+  font-family: inherit;
   font-size: 14px;
-  font-weight: 600;
   text-align: center;
+  color: var(--color-text);
+  background-color: rgba(11, 5, 0, 0.05);
+  border: none;
+  border-radius: 4px;
   -moz-appearance: textfield;
 }
 
@@ -191,42 +177,36 @@
 .book-modal__actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .book-modal__btn {
-  width: 100%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
+  width: 100%;
+  height: 48px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
   border-radius: 4px;
   cursor: pointer;
   transition:
     background-color var(--transition),
     color var(--transition),
-    border-color var(--transition),
-    opacity var(--transition);
-}
-
-.book-modal__btn:focus-visible {
-  outline: 2px solid var(--color-text);
-  outline-offset: 2px;
+    border-color var(--transition);
 }
 
 .book-modal__btn--primary {
-  background-color: var(--color-accent);
   color: var(--color-white);
+  background-color: var(--color-accent);
   border: 1px solid var(--color-accent);
 }
 
 .book-modal__btn--primary:hover,
 .book-modal__btn--primary:focus-visible {
   background-color: var(--color-text);
-  color: var(--color-white);
   border-color: var(--color-text);
 }
 
@@ -236,39 +216,31 @@
 }
 
 .book-modal__btn--secondary {
-  background-color: transparent;
   color: var(--color-text);
+  background-color: transparent;
   border: 1px solid var(--color-text);
 }
 
 .book-modal__btn--secondary:hover,
 .book-modal__btn--secondary:focus-visible {
-  background-color: var(--color-footer-bg);
-  color: var(--color-text);
-  border-color: var(--color-footer-bg);
+  color: var(--color-white);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .book-modal__btn--secondary:active {
-  background-color: var(--color-accent);
-}
-
-.book-modal__btn:disabled,
-.book-modal__btn[aria-disabled='true'] {
-  background-color: rgba(11, 5, 0, 0.15);
-  color: rgba(11, 5, 0, 0.4);
-  border-color: transparent;
-  cursor: not-allowed;
-  pointer-events: none;
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
 }
 
 .book-modal__status {
-  min-height: 18px;
-  margin: 0;
+  min-height: 21px;
   font-size: 14px;
-  font-weight: 500;
+  line-height: 1.5;
   color: var(--color-accent-dark);
 }
 
+/* Акордеон */
 .accordion-container {
   border-top: 1px solid rgba(11, 5, 0, 0.15);
 }
@@ -285,18 +257,19 @@
 }
 
 .accordion-container .ac .ac-trigger {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 0;
-  font-size: 14px;
+  width: 100%;
+  padding: 16px 0;
+  font-family: inherit;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.5;
   text-align: left;
   color: var(--color-text);
-  background: transparent;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -310,59 +283,59 @@
 }
 
 .accordion-container .ac .ac-panel .ac-text {
-  padding: 0 0 14px;
   margin: 0;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(11, 5, 0, 0.6);
+  padding: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
 }
 
-@media (min-width: 768px) {
+.accordion-container .ac-icon {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.accordion-container .ac.is-active .ac-icon {
+  transform: rotate(180deg);
+}
+
+/*! ========== tablet: 704px, padding 64/32, обкладинка 309×467 зліва ========== */
+@media screen and (min-width: 768px) {
   .book-modal {
-    padding: 24px;
+    padding: 32px;
   }
 
   .book-modal__dialog {
-    max-width: 760px;
-    max-height: calc(100vh - 48px);
-    padding: 40px 32px 32px;
-  }
-
-  .book-modal__close {
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
+    max-width: 704px;
+    max-height: calc(100vh - 64px);
+    padding: 64px 32px;
   }
 
   .book-modal__content {
-    grid-template-columns: 310px 1fr;
-    gap: 28px;
+    display: grid;
+    grid-template-columns: 309px minmax(0, 1fr);
+    align-items: start;
+    gap: 16px;
+  }
+}
+
+/*! ========== desktop: 1312px, кнопки в ряд ========== */
+@media screen and (min-width: 1440px) {
+  .book-modal {
+    padding: 64px;
   }
 
-  .book-modal__title {
-    font-size: 32px;
+  .book-modal__dialog {
+    max-width: 1312px;
+    max-height: calc(100vh - 128px);
+    padding: 64px 104px;
   }
 
-  .book-modal__author {
-    font-size: 15px;
-  }
-
-  .book-modal__price {
-    font-size: 22px;
+  .book-modal__content {
+    gap: 24px;
   }
 
   .book-modal__actions {
     flex-direction: row;
-  }
-
-  .accordion-container .ac .ac-trigger {
-    padding: 14px 0;
-    font-size: 15px;
-  }
-
-  .accordion-container .ac .ac-panel .ac-text {
-    font-size: 13px;
-    line-height: 1.6;
   }
 }
